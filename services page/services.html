@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craftsman page</title>
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="left-nav">
+            <button class="hamburger-menu">&#9776;</button>
+            <div class="nav-links">
+                <button class="nav-btn" data-target="profile">Profile Sitting</button>
+                <button class="nav-btn" data-target="wallet">My Wallet</button>
+                <button class="nav-btn" data-target="offers">My Offers</button>
+                <button class="nav-btn" data-target="orders">The Orders</button>
+            </div>
+        </div>
+        <div class="middle-nav">
+            <label class="activated_text" id="activated_text">not activated</label>
+            <div id="status-btn" class="status-btn"></div>
+        </div>
+        <div class="right-nav">
+            <span class="username" id="navbar-username">User Name</span>
+            <img src="Default_pfp.svg.png" alt="Profile Picture" class="profile-pic" id="navbar-profile-pic">
+        </div>
+    </div>
+    <div class="content">
+    <!-- the first page of html-->
+        <div id="profile" class="content-section content-section-profile">
+            <div class="profile" id="profile">
+                <div class="profile-photo">
+                    <img id="profileImage" src="default-photo.jpg" alt="Profile Photo">
+                    <input type="file" id="fileInput" style="display: none;">
+                    <br>
+                    <label for="photoenter" style="color: #333;">your profile photo</label>
+                </div>
+                <form class="profile-form">
+                    <div class="both">
+                    <div class="form-group half-width">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName">
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                    </div>
+                    <div class="both">
+                    <div class="form-group half-width">
+                        <label for="dateOfBirth">Date of Birth:</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber">
+                    </div>
+                    </div>
+                    <div class="both">
+                    <div class="form-group half-width">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group half-width">
+                        <label for="governorate">Governorate:</label>
+                        <input type="text" id="governorate" name="governorate">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" class="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="workPhotos">Photos of Work:</label>
+                        <input type="file" id="workPhotos" name="workPhotos" multiple>
+                    </div>
+                </form>
+                <div class="buttons">
+                <button class="cancel">cancel</button>
+                <button class="save">save</button>
+                </div>
+            </div>
+        </div>
+        <!-- the second page of html-->
+        <div id="wallet" class="content-section content-section-wallet">
+            <section class="section1">
+                <div class="thebudgit">
+                    <label class="first-word">MasterCard For Services Man's</label>
+                    <label class="second-word"><label style="display: flex; flex-direction: row; color: rgb(203, 148, 8);" >د.ع</label>100,000</label>
+                </div>
+            </section>
+            <br><br><br>
+            <label class="hsitory-word">History :</label><br><br><br><br>
+            <hr>
+            <div class="box">
+                <div class="box-content">
+                    <div class="box-header">
+                        <span class="message">تمت عملية استيراد</span>
+                        <span class="date">2024/7/31</span>
+                    </div>
+                    <div class="box-body">
+                        <span class="price">the price : 50,000 IQ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-content">
+                    <div class="box-header">
+                        <span class="message">تمت عملية ايداع</span>
+                        <span class="date">2024/7/30</span>
+                    </div>
+                    <div class="box-body">
+                        <span class="price">the price : 150,000 IQ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-content">
+                    <div class="box-header">
+                        <span class="message">تمت عملية استيراد</span>
+                        <span class="date">2024/7/31</span>
+                    </div>
+                    <div class="box-body">
+                        <span class="price">the price : 50,000 IQ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-content">
+                    <div class="box-header">
+                        <span class="message">تمت عملية استيراد</span>
+                        <span class="date">2024/7/31</span>
+                    </div>
+                    <div class="box-body">
+                        <span class="price">the price : 50,000 IQ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- the third page of html-->
+        <div id="offers" class="content-section content-section-offers">
+            <div class="my-services">
+                <div class="services-box">
+                    <div class="services-info">
+                        <span class="user-services-name">Sohaib Raid</span>
+                        <span class="services-name">Car Repair</span>
+                        <p class="services-description">We efficiently repair your car with top-notch service.</p>
+                        <span class="services-price">price : $100</span>
+                    </div>
+                    <img src="portrait-mechanic-servicing-car-engine.jpg" alt="Car Repair Service" class="services-photo">
+                </div>
+                <div class="services-box">
+                    <div class="services-info">
+                        <span class="user-services-name">Sohaib Raid</span>
+                        <span class="services-name">Craftsman for Tables</span>
+                        <p class="services-description">We make efficient and beautiful tables.</p>
+                        <span class="services-price">price : $50</span>
+                    </div>
+                    <img src="smiling-professional-male-carpenter-measuring-wooden-block-with-ruler.jpg" alt="Craftsman for Tables" class="services-photo">
+                </div>
+            </div>
+            <div class="services-box">
+                <div class="services-info">
+                    <span class="user-services-name">Sohaib Raid</span>
+                    <span class="services-name">Electricity</span>
+                    <p class="services-description">with us you should don't worry about Electricity</p>
+                    <span class="services-price">price : $30</span>
+                </div>
+                <img src="electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment.jpg" alt="Craftsman for Tables" class="services-photo">
+            </div>
+        </div>
+            <!-- Modal for adding new service -->
+            <div class="services-modal" id="addServicesModal">
+                <div class="services-modal-content">
+                    <span class="services-close-btn">&times;</span>
+                    <h2 style="color: #333;">Add New Service</h2>
+                    <form id="addServicesForm">
+                        <div class="services-form-group">
+                            <label for="userServicesName" style="color: #333;">User Name:</label>
+                            <input type="text" id="userServicesName" name="userServicesName" required>
+                        </div>
+                        <div class="services-form-group">
+                            <label for="serviceServicesName" style="color: #333;">Service Name:</label>
+                            <input type="text" id="serviceServicesName" name="serviceServicesName" required>
+                        </div>
+                        <div class="services-form-group">
+                            <label for="servicesDescription" style="color: #333;">Description:</label>
+                            <textarea id="servicesDescription" name="servicesDescription" required></textarea>
+                        </div>
+                        <div class="services-form-group">
+                            <label for="servicesPrice" style="color: #333;">Price:</label>
+                            <input type="text" id="servicesPrice" name="servicesPrice" required>
+                        </div>
+                        <div class="services-form-group">
+                            <label for="servicesPhoto" style="color: #333;">Photo:</label>
+                            <input type="file" id="servicesPhoto" name="servicesPhoto" accept="image/*" required>
+                        </div>
+                        <button type="submit" id="servicesAddButton" disabled>Add</button>
+                    </form>
+                </div>
+            </div>
+        
+            <button class="add-services-btn">&#43;</button>
+        </div>
+        <div id="orders" class="content-section content-section-orders">
+            <div class="request-container" id="requestContainer">
+            </div>
+        </div>
+    </div>
+
+    <script src="services.js"></script>
+</body>
+</html>
