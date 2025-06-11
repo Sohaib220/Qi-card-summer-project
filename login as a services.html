@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login as a services</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            direction: rtl;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: linear-gradient(to right top, #1e3457, #1d3c60, #1a4368, #164b71, #0f5379, #085e83, #036a8c, #007595, #00869e, #0097a2, #00a79f, #00b696);
+        }
+
+        .login-container {
+            display: flex;
+            width: 800px;
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: lightgray;
+            border-radius: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .plumber-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .plumber {
+            animation: fadeIn 1s ease-in-out;
+            max-width: 420px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 70px 30px 30px;
+            position: relative;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo {
+            max-width: 100px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            border-radius: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type=text], input[type=tel], input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button, input[type=submit] {
+            background-color: steelblue;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100%;
+            background-image: linear-gradient(to left, #080160, #141c81, #1a35a3, #1b50c7, #126beb);
+        }
+
+        button:hover, input[type=submit]:hover {
+            background-color: #004080;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .create-account {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .create-account a {
+            background-color: steelblue;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            background-image: linear-gradient(to left, #080160, #141c81, #1a35a3, #1b50c7, #126beb);
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            animation: slideUp 1s ease-in-out;
+        }
+
+        .create-account a:hover {
+            background-color: #004080;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .login-container, .form-container, form {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .logo, h2, label, input, button, .create-account a {
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @media (max-width: 1000px) {
+            .plumber-container {
+                display: none;
+            }
+            .login-container {
+                max-width: 600px;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .plumber-container {
+                display: none;
+            }
+            .login-container {
+                max-width: 400px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+
+        <div class="plumber-container">
+            <img src="photos/bodyphoto/plumber man pointing.png" alt="plumber" class="plumber">
+        </div>
+
+        <div class="form-container">
+            <div class="logo-container">
+                <img src="photos/header photo/logo harfi.png" alt="logo" class="logo">
+            </div>
+            <h2>تسجيل دخول حرفي</h2>
+            <form id="login-form">
+                <label for="username-email">الايميل :</label>
+                <input type="email" id="username-email" name="username-email" placeholder="الايميل" required>
+                <span id="email-error" class="error-message"></span>
+
+                <label for="phone-number">رقم الموبايل :</label>
+                <input type="text" id="phone-number" name="phone-number" placeholder="أدخل رقم الموبايل" pattern="\d{11}" required>
+                <span id="phone-error" class="error-message"></span>
+
+                <input type="submit" value="تسجيل الدخول">
+
+                <div class="create-account">
+                    <a href="services registration.html">أنشاء حساب</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const usernameEmail = document.getElementById('username-email').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+
+            let isValid = true;
+
+            // Reset error messages
+            document.getElementById('email-error').style.display = 'none';
+            document.getElementById('phone-error').style.display = 'none';
+
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(usernameEmail)) {
+                document.getElementById('email-error').textContent = 'البريد الإلكتروني غير صحيح';
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate phone number length and digits only
+            if (phoneNumber.length !== 11 || !/^\d{11}$/.test(phoneNumber)) {
+                document.getElementById('phone-error').textContent = 'يجب أن يكون رقم الهاتف مكون من 11 رقمًا';
+                document.getElementById('phone-error').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                console.log('Username or Email:', usernameEmail);
+                console.log('Phone Number:', phoneNumber);
+
+                // Add your login logic here
+            }
+        });
+
+        // Restrict phone number input to digits and max length of 11
+        document.getElementById('phone-number').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 11);
+        });
+
+        document.getElementById('phone-number').addEventListener('keypress', function (e) {
+            if (!/\d/.test(e.key) || e.target.value.length >= 11) {
+                e.preventDefault();
+            }
+        });
+
+        function createAccount() {
+            console.log('Create Account button clicked');
+        }
+    </script>
+</body>
+</html>

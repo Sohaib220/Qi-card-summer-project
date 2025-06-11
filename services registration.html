@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>services registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: linear-gradient(to right top, #1e3457, #1d3c60, #1a4368, #164b71, #0f5379, #085e83, #036a8c, #007595, #00869e, #0097a2, #00a79f, #00b696);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    background-color: #fff;
+    padding: 10px; /* Reduced padding for smaller screens */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    max-width: 400px; /* Reduced max-width for smaller screens */
+    text-align: center;
+}
+
+.logo-container {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 40%; /* Increased logo width for better visibility on small screens */
+    max-width: 100px; /* Reduced max-width for smaller screens */
+}
+
+h1 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+    text-align: right;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 0.75rem; /* Reduced padding for smaller screens */
+    margin-bottom: 0.75rem; /* Reduced margin for smaller screens */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 0.875rem; /* Smaller font size for smaller screens */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    background-image: linear-gradient(to left, #080160, #141c81, #1a35a3, #1b50c7, #126beb);
+    color: #fff;
+    padding: 0.75rem 1.25rem; /* Reduced padding for smaller screens */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.875rem; /* Smaller font size for smaller screens */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #388e3c;
+}
+
+.name-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Reduced gap for smaller screens */
+}
+
+.name-field {
+    flex: 1;
+    min-width: 0;
+}
+
+.phone-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Reduced gap for smaller screens */
+    margin-bottom: 1rem; /* Reduced margin for smaller screens */
+}
+
+.phone-field {
+    flex: 1;
+}
+
+.required {
+    color: red;
+}
+
+.progress-container {
+    position: relative;
+    margin-bottom: 1rem;
+    height: 20px;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #4CAF50;
+    border-radius: 25px;
+    transition: width 0.4s;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 10vh;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 1rem; /* Reduced padding for smaller screens */
+    border: 1px solid #ddd;
+    width: 80%;
+    max-width: 350px; /* Reduced max-width for smaller screens */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 1.25rem; /* Reduced font size for smaller screens */
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.modal-content p {
+    margin-bottom: 1rem; /* Reduced margin for smaller screens */
+    color: #666;
+    text-align: center;
+}
+
+.modal-content input[type="text"] {
+    width: calc(100% - 1.5rem); /* Adjusted width for padding */
+    padding: 0.75rem; /* Reduced padding for smaller screens */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 1rem; /* Reduced margin for smaller screens */
+    text-align: left;
+}
+
+.modal-content button {
+    background: linear-gradient(to left, #080160, #141c81, #1a35a3, #1b50c7, #126beb);
+    color: #fff;
+    padding: 0.75rem 1.25rem; /* Reduced padding for smaller screens */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.875rem; /* Smaller font size for smaller screens */
+}
+
+/* Media Queries for various screen sizes */
+@media (max-width: 600px) {
+    .container {
+        padding: 0.75rem; /* Reduced padding for smaller screens */
+    }
+
+    .logo {
+        width: 60%; /* Adjusted width for logo */
+        max-width: 100px; /* Further reduced max-width */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+        padding: 0.5rem; /* Further reduced padding */
+        font-size: 0.75rem; /* Further reduced font size */
+    }
+
+    button {
+        padding: 0.5rem 1rem; /* Further reduced padding */
+        font-size: 0.75rem; /* Further reduced font size */
+    }
+
+    .modal-content {
+        padding: 1rem; /* Reduced padding for smaller screens */
+    }
+
+    .modal-content input[type="text"] {
+        width: calc(100% - 1rem); /* Adjusted width for padding */
+    }
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="photos/header photo/logo harfi.png" alt="الشعار" class="logo">
+        </div>
+        <h1 style="margin: 0; padding-bottom: 10px; padding-top: 0;">انشاء حساب حرفي</h1>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-labels">
+                <span>بداية</span>
+                <span>النهاية</span>
+            </div>
+        </div>
+
+        <form id="registrationForm">
+            <div id="section1">
+                <div class="name-container">
+                    <div class="name-field">
+                        <label for="lastName">: الاسم الأخير</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="الاسم الأخير" oninput="validateTextInput(event)">
+                    </div>
+                    <div class="name-field">
+                        <label for="firstName">: الاسم الأول</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="الاسم الأول" oninput="validateTextInput(event)">
+                    </div>
+                </div>
+
+                <div class="phone-group">
+                    <div class="phone-field">
+                        <label for="phone">: رقم الهاتف<span class="required">*</span></label>
+                        <input type="text" id="phone" name="phone" required placeholder="رقم الهاتف" oninput="validatePhoneInput(event)" onkeydown="return restrictPhoneInput(event)" maxlength="11">
+                        <span id="phone-error" style="color: red; display: none;">الرجاء إدخال رقم هاتف صحيح.</span>
+                    </div>
+                    <div class="phone-field">
+                        <label for="countryCode">: المحافظة<span class="required">*</span></label>
+                        <select id="countryCode" name="countryCode" required>
+                            <option value="" disabled selected>اختر المحافظة</option>
+                            <option value="بغداد">بغداد</option>
+                            <option value="البصرة">البصرة</option>
+                            <option value="نينوى">نينوى</option>
+                            <option value="كربلاء">كربلاء</option>
+                            <option value="النجف">النجف</option>
+                            <option value="الأنبار">الأنبار</option>
+                            <option value="السليمانية">السليمانية</option>
+                            <option value="أربيل">أربيل</option>
+                            <option value="بابل">بابل</option>
+                            <option value="القادسية">القادسية</option>
+                            <option value="ديالى">ديالى</option>
+                            <option value="ذي قار">ذي قار</option>
+                            <option value="صلاح الدين">صلاح الدين</option>
+                            <option value="كركوك">كركوك</option>
+                            <option value="ميسان">ميسان</option>
+                            <option value="المثنى">المثنى</option>
+                            <option value="واسط">واسط</option>
+                            <option value="دهوك">دهوك</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="birthDate">: تاريخ الميلاد <span class="required">*</span></label>
+                <input type="text" id="birthDate" name="birthDate" required placeholder="YYYY/MM/DD" oninput="formatDateInput(event)" onblur="validateDateInput(event)">
+
+                <label for="email">: البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" required placeholder="البريد الإلكتروني" oninput="removeInvalidCharacters(event)" onkeydown="restrictInput(event)">
+                <span id="email-error" style="color: red;margin-top: -10px; display: none;">الرجاء إدخال بريد إلكتروني صالح بنهاية معروفة.</span>
+
+                <button type="button" onclick="validateSection1()">التالي</button>
+            </div>
+
+            <div id="section2" style="display: none;">
+                <label for="workshopPlace">: مكان الورشة</label>
+                <input type="text" id="workshopPlace" name="workshopPlace" required placeholder="مكان الورشة">
+
+                <label for="floor">: الطابق</label>
+                <input type="text" id="floor" name="floor" required placeholder="الطابق">
+
+                <label for="servicePhoto">: صورة الخدمة</label>
+                <input type="file" id="servicePhoto" name="servicePhoto" required>
+                <br><br><br>
+                <label for="facePhoto">: صورة الوجه</label>
+                <input type="file" id="facePhoto" name="facePhoto" required>
+                <br><br><br>
+                <a href="services page/services.html" onclick="validateSection2()" style="text-decoration: none;">
+                <button type="button">إرسال</button>
+                </a>
+            </div>
+        </form>
+    </div>
+    <script>
+        const SENT_OTP = '123456';
+
+        function nextSection() {
+            const section1 = document.getElementById('section1');
+            const section2 = document.getElementById('section2');
+
+            if (section1.style.display !== 'none') {
+                section1.style.display = 'none';
+                section2.style.display = 'block';
+                updateProgressBar(100);
+            }
+        }
+
+        function updateProgressBar(percentage) {
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        function validatePhoneInput(event) {
+            const input = event.target;
+            const value = input.value;
+            const errorElement = document.getElementById('phone-error');
+            const validPrefixes = ['077', '078', '075'];
+
+            if (value.length > 11) {
+                input.value = value.slice(0, 11);
+            }
+
+            if (value.length >= 3) {
+                const prefix = value.substring(0, 3);
+                if (!validPrefixes.includes(prefix)) {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+            } else {
+                errorElement.style.display = 'none';
+            }
+        }
+
+        function restrictPhoneInput(event) {
+            const charCode = (event.which) ? event.which : event.keyCode;
+            const char = String.fromCharCode(charCode);
+            const nonDigitRegex = /[^0-9]/;
+
+            if (nonDigitRegex.test(char) && charCode !== 8 && charCode !== 46) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        function formatDateInput(event) {
+            const input = event.target;
+            let value = input.value.replace(/\D/g, '');
+
+            if (value.length > 4) {
+                value = value.slice(0, 4) + '/' + value.slice(4);
+            }
+            if (value.length > 7) {
+                let monthDay = value.slice(5, 7);
+                if (monthDay.length === 1) {
+                    monthDay = '0' + monthDay;
+                }
+                value = value.slice(0, 5) + monthDay + '/' + value.slice(7, 9);
+            }
+            if (value.length > 10) {
+                let day = value.slice(8, 10);
+                if (day.length === 1) {
+                    day = '0' + day;
+                }
+                value = value.slice(0, 8) + day;
+            }
+            input.value = value;
+        }
+
+        function validateDateInput(event) {
+            const input = event.target;
+            const datePattern = /^\d{4}\/\d{2}\/\d{2}$/;
+            if (!datePattern.test(input.value)) {
+                input.setCustomValidity('يرجى إدخال التاريخ بالصيغة YYYY/MM/DD');
+            } else {
+                input.setCustomValidity('');
+            }
+        }
+
+        function isValidAge(dateString) {
+            const today = new Date();
+            const [year, month, day] = dateString.split('/').map(num => parseInt(num, 10));
+            const birthDate = new Date(year, month - 1, day);
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const monthDifference = today.getMonth() - birthDate.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                return age - 1 >= 18;
+            }
+            return age >= 18;
+        }
+
+        const validEmailEndings = [
+            'gmail.com', 'yahoo.com', 'yahoo.co.uk', 'yahoo.fr', 'yahoo.de',
+            'outlook.com', 'hotmail.com', 'live.com', 'msn.com',
+            'icloud.com', 'me.com', 'mac.com',
+            'yandex.com', 'yandex.ru',
+            'zoho.com',
+            'protonmail.com',
+            'aol.com',
+            'mail.com',
+            'gmx.com', 'gmx.net',
+            'tutanota.com',
+            'fastmail.com'
+        ];
+
+        function removeInvalidCharacters(event) {
+            const input = event.target;
+            const value = input.value;
+
+            // Remove any invalid characters
+            input.value = value.replace(/[^a-zA-Z0-9@._-]/g, '');
+
+            // Validate email ending
+            const emailErrorElement = document.getElementById('email-error');
+            const emailParts = value.split('@');
+            if (emailParts.length === 2) {
+                const domain = emailParts[1];
+                if (!validEmailEndings.includes(domain)) {
+                    emailErrorElement.style.display = 'block';
+                } else {
+                    emailErrorElement.style.display = 'none';
+                }
+            } else {
+                emailErrorElement.style.display = 'none';
+            }
+        }
+
+        function restrictInput(event) {
+            const charCode = (event.which) ? event.which : event.keyCode;
+            const char = String.fromCharCode(charCode);
+
+            // Allow backspace, delete, tab, escape, enter, @, ., -, and _
+            if ([8, 46, 9, 27, 13, 64, 190, 189, 95].indexOf(charCode) !== -1 ||
+                (charCode >= 35 && charCode <= 40)) {
+                return;
+            }
+
+            // Ensure that it is a number or letter and stop the keypress
+            const nonAllowedCharacters = /[^a-zA-Z0-9@._-]/;
+            if (nonAllowedCharacters.test(char)) {
+                event.preventDefault();
+            }
+        }
+
+        function validateSection1() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const phone = document.getElementById('phone').value;
+            const countryCode = document.getElementById('countryCode').value;
+            const birthDate = document.getElementById('birthDate').value;
+            const email = document.getElementById('email').value;
+
+            if (!firstName || !lastName || !phone || !countryCode || !birthDate || !email) {
+                alert('يرجى ملء جميع الحقول المطلوبة.');
+                return;
+            }
+
+            if (!isValidAge(birthDate)) {
+                alert('يجب أن يكون عمرك 18 عامًا على الأقل.');
+                return;
+            }
+
+            updateProgressBar(50);
+            nextSection();
+        }
+
+        function validateSection2() {
+            const workshopPlace = document.getElementById('workshopPlace').value;
+            const floor = document.getElementById('floor').value;
+            const servicePhoto = document.getElementById('servicePhoto').files.length;
+            const facePhoto = document.getElementById('facePhoto').files.length;
+
+            if (!workshopPlace || !floor || !servicePhoto || !facePhoto) {
+                alert('يرجى ملء جميع الحقول المطلوبة.');
+                return;
+            }
+
+            alert('تم إرسال النموذج بنجاح!');
+            // Add form submission code here
+        }
+
+        // Attach the specific function to the email input
+        document.getElementById('email').addEventListener('keydown', restrictInput);
+
+        const totalFields = 10; // Total number of required fields
+        let completedFields = 0;
+
+        // Update the progress bar
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progressBar');
+            const percentage = (completedFields / totalFields) * 100;
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        // Check if a field is filled and update the progress
+        function checkFieldCompletion() {
+            completedFields = 0; // Reset count
+
+            const fields = [
+                'firstName', 'lastName', 'phone', 'countryCode', 
+                'birthDate', 'email', 'workshopPlace', 
+                'floor', 'servicePhoto', 'facePhoto'
+            ];
+
+            fields.forEach(field => {
+                const element = document.getElementById(field);
+                if (element.type === 'file') {
+                    if (element.files.length > 0) {
+                        completedFields++;
+                    }
+                } else {
+                    if (element.value.trim() !== '') {
+                        completedFields++;
+                    }
+                }
+            });
+
+            updateProgressBar();
+        }
+
+        // Add event listeners to update progress as fields are filled
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('input', checkFieldCompletion);
+            input.addEventListener('change', checkFieldCompletion); // For file inputs
+        });
+
+        // Initial progress bar update
+        checkFieldCompletion();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>authentication number page</title>
+</head>
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    direction: rtl;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    background-image: linear-gradient(to right top, #1e3457, #1d3c60, #1a4368, #164b71, #0f5379, #085e83, #036a8c, #007595, #00869e, #0097a2, #00a79f, #00b696);
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.logo {
+    width: 150px;
+    cursor: pointer;
+}
+
+h1 {
+    margin: 0;
+}
+
+.otp-card {
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+.otp-card-inputs {
+    margin: 30px 0;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+}
+
+.otp-card-inputs input {
+    width: 60px;
+    height: 70px;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.otp-card-inputs input:focus {
+    border-color: #126beb;
+    outline: none;
+}
+
+.otp-card button {
+    background-color: #126beb;
+    border: none;
+    padding: 15px 50px;
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.otp-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.otp-card button span {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: width 0.5s;
+}
+
+.otp-card button:hover span {
+    width: 100%;
+}
+
+</style>
+<body>
+<div class="otp-card">
+    <img src="photos/header photo/logo harfi.png" class="logo" alt="Logo">
+    <h1>التحقق من رمز الدخول</h1>
+    <br>
+    <p>تم ارسال الرمز الى الرقم التالي ***********077</p>
+    <div class="otp-card-inputs">
+        <input type="text" maxlength="1" autofocus title="number1">
+        <input type="text" maxlength="1" title="number2">
+        <input type="text" maxlength="1" title="number3">
+        <input type="text" maxlength="1" title="number4">
+        <input type="text" maxlength="1" title="number5">
+    </div>
+    <p>لم تحصل على الرمز؟ <a href="#">أعد ارسال الرمز</a></p>
+    <button><a href="test/login.html" style="color: white; text-decoration: none;">تأكيد</a></button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const inputs = document.querySelectorAll('.otp-card-inputs input');
+    const button = document.querySelector('.otp-card button');
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+            const currentElement = e.target;
+            const nextElement = inputs[index + 1];
+            const prevElement = inputs[index - 1];
+            
+            if (currentElement.value && /^[0-9]+$/.test(currentElement.value)) {
+                if (nextElement) {
+                    nextElement.focus();
+                }
+            } else {
+                currentElement.value = currentElement.value.replace(/\D/g, '');
+            }
+
+            const allFilled = Array.from(inputs).every(input => input.value);
+            button.disabled = !allFilled;
+        });
+
+        input.addEventListener('keydown', (e) => {
+            const prevElement = inputs[index - 1];
+            if (e.key === 'Backspace' && !input.value && prevElement) {
+                prevElement.focus();
+            }
+        });
+    });
+});
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
