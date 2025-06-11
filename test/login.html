@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-option Bar</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="left-nav">
+            <button class="nav-btn" data-target="home">Home</button>
+            <button class="nav-btn" data-target="about">History</button>
+            <button class="nav-btn" data-target="contact">Sitting</button>
+        </div>
+        <div class="logo">
+            <img src="logo harfi white.png" alt="Profile">
+        </div>
+        <div class="profile">
+            <img src="sohaib.png" alt="Profile" style="margin-right: 10px; ">
+            <span>sohaib raid</span>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="home" class="content-section">
+            <div class="home-top home-section">
+                <h1 style="color: #333;">اكبر سوق عربي للخدمات</h1>
+                <div class="search-container">
+                    <input type="text" class="search-box" placeholder="ابحث عن خدمة...">
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+            <div class="home-bottom">
+                <div class="services-grid">
+                    <a href="#" class="service-box" style="background: url(front-view-female-mechanic-holding-wrench.jpg)no-repeat center center/cover;">تصليح مركبات</a>
+                    <a href="#" class="service-box" style="background: url(plumbing-professional-doing-his-job.jpg)no-repeat center center/cover;">تصليح بواري</a>
+                    <a href="#" class="service-box" style="background: url(high-angle-view-laptop-mobile-phone-wooden-desk.jpg)no-repeat center center/cover;">تصليح لابتوب و كومبيوتر</a>
+                    <a href="#" class="service-box" style="background: url(devices-marble-table.jpg)no-repeat center center/cover;">تصليح موبايل و تابلت</a>
+                    <a href="#" class="service-box" style="background: url(tv-hanged-wall-indoors.jpg)no-repeat center center/cover;">تصليح شاشات تلفزيون</a>
+                    <a href="#" class="service-box" style="background: url(electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment.jpg)no-repeat center center/cover;">نصليح كهرباء</a>
+                    <a href="#" class="service-box" style="background: url(full-shot-artisan-doing-woodcutting.jpg)no-repeat center center/cover;">صناعة الخشب و الحديد</a>
+                    <a href="#" class="service-box" style="background: url(cars\ takin.jpg)no-repeat center center/cover;">سحب سيارة</a>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="content-section">
+            <div class="history-container">
+                <div class="history-box">
+                    <div class="history-user-photo">
+                        <img src="engineer.avif" alt="User Photo">
+                    </div>
+                    <div class="history-info">
+                        <div class="history-user-name">Ahmed muhsn</div>
+                        <div class="history-job-title">repiear a door</div>
+                        <div class="history-price">$50</div>
+                    </div>
+                    <button class="history-rating-btn" onclick="openRatingModal(1)">Rate</button>
+                </div>
+                <!-- Repeat the history-box block for each user -->
+                <!-- History Box 2 -->
+                <div class="history-box">
+                    <div class="history-user-photo">
+                        <img src="portrait-male-carpenter-wearing-ear-defender-around-his-neck-looking-camera.jpg" alt="User Photo">
+                    </div>
+                    <div class="history-info">
+                        <div class="history-user-name">Mohammed Adil</div>
+                        <div class="history-job-title">craft a table</div>
+                        <div class="history-price">$100</div>
+                    </div>
+                    <button class="history-rating-btn" onclick="openRatingModal(2)">Rate</button>
+                </div>
+                <!-- History Box 3 -->
+                <div class="history-box">
+                    <div class="history-user-photo">
+                        <img src="service-maintenance-worker-repairing.jpg" alt="User Photo">
+                    </div>
+                    <div class="history-info">
+                        <div class="history-user-name">Ahmed Mohammed</div>
+                        <div class="history-job-title">Repieard the electricity</div>
+                        <div class="history-price">$100</div>
+                    </div>
+                    <button class="history-rating-btn" onclick="openRatingModal(3)">Rate</button>
+                </div>
+                <!-- History Box 4 -->
+                <div class="history-box">
+                    <div class="history-user-photo">
+                        <img src="portrait-attractive-hispanic-handyman-writing-work-estimate-before-fixing-kitchen-sink.jpg" alt="User Photo">
+                    </div>
+                    <div class="history-info">
+                        <div class="history-user-name">Abbas Adel</div>
+                        <div class="history-job-title">Repieard the pipes</div>
+                        <div class="history-price">$150</div>
+                    </div>
+                    <button class="history-rating-btn" onclick="openRatingModal(4)">Rate</button>
+                </div>
+                <!-- History Box 5 -->
+                <div class="history-box">
+                    <div class="history-user-photo">
+                        <img src="mechanics-repairing-car-workshop.jpg" alt="User Photo">
+                    </div>
+                    <div class="history-info">
+                        <div class="history-user-name">Ali Adel & Adel Salam</div>
+                        <div class="history-job-title">Repier a car</div>
+                        <div class="history-price">$300</div>
+                    </div>
+                    <button class="history-rating-btn" onclick="openRatingModal(5)">Rate</button>
+                </div>
+            </div>
+        
+            <!-- Rating Modal -->
+            <div id="history-rating-modal" class="history-rating-modal">
+                <div class="history-rating-modal-content">
+                    <span class="history-rating-close" onclick="closeRatingModal()">&times;</span>
+                    <div class="history-rating-stars">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+                    </div>
+                    <textarea class="history-rating-description" placeholder="Write your description..."></textarea>
+                    <button class="history-rating-submit" onclick="submitRating()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="content-section">
+            <div class="content-section-profile">
+            <div class="profile-photo-up">
+                <img src="sohaib.png" alt="Profile Photo" class="profile-photo">
+                <div class="profile-info">
+                    <div class="profile-row">
+                        <div class="both">
+                            <div class="profile-label">First Name:</div>
+                            <input type="text" class="profile-input" placeholder="Enter First Name">
+                        </div>
+                        <div class="both">
+                            <div class="profile-label">Last Name:</div>
+                            <input type="text" class="profile-input" placeholder="Enter Last Name">
+                        </div>
+                    </div>
+                    <div class="profile-row">
+                        <div class="both">
+                            <div class="profile-label">Phone Number:</div>
+                            <input type="text" class="profile-input" placeholder="Enter Phone Number">
+                        </div>
+                        <div class="both">
+                            <div class="profile-label">Date of Birth:</div>
+                            <input type="date" class="profile-input" title="date">
+                        </div>
+                    </div>
+                    <div class="profile-row">
+                        <div class="both">
+                            <div class="profile-label">City:</div>
+                            <input type="text" class="profile-input" placeholder="Enter City">
+                        </div>
+                        <div class="both">
+                            <div class="profile-label">Governorate:</div>
+                            <input type="text" class="profile-input" placeholder="Enter Governorate">
+                        </div>
+                    </div>
+                </div>
+                <button class="profile-button">Save</button>
+                <button class="profile-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    </div>        
+
+    <script src="login.js"></script>
+</body>
+</html>
