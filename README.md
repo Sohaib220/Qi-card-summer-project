@@ -43,4 +43,6 @@ The entire site is powered using **HTML**, **CSS**, and **JavaScript** — no fr
 
 ---
 
+Don't forgit to give me a ⭐ on this project if you liked it
+
 
